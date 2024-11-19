@@ -3,6 +3,7 @@ package project.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import project.enums.Bank;
 import project.enums.Currency;
 
 @Entity
@@ -10,15 +11,19 @@ import project.enums.Currency;
 @NoArgsConstructor
 @Data
 public class Account {
-//    (id, number, amount, currency)
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Enumerated(EnumType.STRING)
+    private Bank name;
 
     private String number;
 
     private double amount;
 
+    @Enumerated(EnumType.STRING)
     private Currency currency;
 
     private long user_id;
