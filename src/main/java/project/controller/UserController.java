@@ -22,6 +22,11 @@ public class UserController {
         return service.getAll();
     }
 
+    @GetMapping("/{id}")
+    public User getById (@PathVariable long id) {
+        return service.getById(id);
+    }
+
 //  POST ---------------------------------------------------------------------------------------------------------------
 
     @PostMapping
