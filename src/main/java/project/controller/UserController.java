@@ -33,4 +33,12 @@ public class UserController {
     public User create(@RequestBody User user) {
         return service.create(user);
     }
+
+//  DELETE -------------------------------------------------------------------------------------------------------------
+
+    @DeleteMapping("/{id}")
+    public User delete(@PathVariable long id) {
+        return service.remove(id);
+    }
+
 }

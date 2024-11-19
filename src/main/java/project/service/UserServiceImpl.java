@@ -14,14 +14,11 @@ public class UserServiceImpl implements UserService {
     private UserRepository repository;
 
 
+//  @GET ---------------------------------------------------------------------------------------------------------------
+
     @Override
     public List<User> getAll() {
         return repository.findAll();
-    }
-
-    @Override
-    public User create(User user) {
-        return repository.save(user);
     }
 
     @Override
@@ -29,8 +26,19 @@ public class UserServiceImpl implements UserService {
         return repository.findById(id).get();
     }
 
-    @Override
-    public void remove(long id) {
+//  @POST --------------------------------------------------------------------------------------------------------------
 
+    @Override
+    public User create(User user) {
+        return repository.save(user);
+    }
+
+//  @DELETE ------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public User remove(long id) {
+        User user = repository.findById(id).get();
+        repository.delete(user);
+        return user;
     }
 }
