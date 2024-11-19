@@ -1,9 +1,7 @@
 package project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.entity.User;
 import project.service.UserService;
 
@@ -22,5 +20,12 @@ public class UserController {
     @GetMapping
     public List<User> getAll () {
         return service.getAll();
+    }
+
+//  POST ---------------------------------------------------------------------------------------------------------------
+
+    @PostMapping
+    public User create(@RequestBody User user) {
+        return service.create(user);
     }
 }
